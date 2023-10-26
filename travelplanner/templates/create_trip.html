@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Trip</title>
+</head>
+<body>
+    <h1>Create a New Trip</h1>
+    <form method="post">s
+        {% csrf_token %}
+        <label for="visa_duration">Visa Duration (in days):</label>
+        <input type="number" id="visa_duration" name="visa_duration" placeholder="e.g., 30" step="1" min="0">
+        <br>
+        <label for="visa_price">Visa Price (USD):</label>
+        <input type="number" id="visa_price" name="visa_price" placeholder="e.g., 50" step="0.01" min="0">
+        <br>
+        <button type="submit">Create Trip</button>
+    </form>
+</body>
+</html>
