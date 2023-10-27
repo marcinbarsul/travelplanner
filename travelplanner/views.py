@@ -1,8 +1,9 @@
 
 from django.shortcuts import render, redirect
-from django.core.exceptions import ValidationError
-from .models import Flight
 from .forms import FlightForm
+from .models import Hotel
+
+
 
 def create_flight(request):
     if request.method == 'POST':
@@ -24,3 +25,15 @@ def create_flight(request):
         form = FlightForm()
 
     return render(request, 'create_flight.html', {'form': form})
+
+def travel_costs(request):
+    hotels = Hotel.objects.all()
+
+    total_hotel_cost = sum(hotel.cena for hotel in hotels)
+
+    context = {
+        'hotels': hotels,
+        'total_hotel_cost': total_hotel_cost,
+    }
+
+    return render(request, 'your_template.html', context)

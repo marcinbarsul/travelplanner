@@ -5,7 +5,7 @@
 </head>
 <body>
     <h1>Create a New Trip</h1>
-    <form method="post">s
+    <form method="post">
         {% csrf_token %}
         <label for="visa_duration">Visa Duration (in days):</label>
         <input type="number" id="visa_duration" name="visa_duration" placeholder="e.g., 30" step="1" min="0">
@@ -15,5 +15,15 @@
         <br>
         <button type="submit">Create Trip</button>
     </form>
+    h1>Koszty podróży:</h1>
+
+    <h2>Hotele:</h2>
+    <ul>
+      {% for hotel in hotels %}
+        <li>{{ hotel.name }} - {{ hotel.cena }} zł</li>
+      {% endfor %}
+    </ul>
+
+    <p>Całkowity koszt hoteli: {{ total_hotel_cost }} zł</p>
 </body>
 </html>
