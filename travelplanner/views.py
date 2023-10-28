@@ -4,7 +4,6 @@ from .forms import FlightForm
 from .models import Hotel
 
 
-
 def create_flight(request):
     if request.method == 'POST':
         form = FlightForm(request.POST)
@@ -37,3 +36,5 @@ def travel_costs(request):
     }
 
     return render(request, 'your_template.html', context)
+
+
